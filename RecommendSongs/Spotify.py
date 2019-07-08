@@ -4,7 +4,7 @@ import spotipy.util as util
 from spotipy.oauth2 import SpotifyClientCredentials 
 
 #global variables
-cid =cLIENT_Id 
+cid = CLIENT_ID
 secret = CLIENT_SECRET
 redirect_uri = URI_PROVIDED_ON_SPOTIFY
 username = ""
