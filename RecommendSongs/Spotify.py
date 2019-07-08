@@ -4,12 +4,12 @@ import spotipy.util as util
 from spotipy.oauth2 import SpotifyClientCredentials 
 
 #global variables
-cid ="f39a5b4873c644798153b1b2e064622a" 
-secret = "ff2eae50bf1e4a53a9efb9fef2675f9b"
-redirect_uri = "http://localhost:8888/callback/"
+cid =cLIENT_Id 
+secret = CLIENT_SECRET
+redirect_uri = URI_PROVIDED_ON_SPOTIFY
 username = ""
 scope = 'user-library-read playlist-read-private'
-user = 'michaeldiggin'
+user = USERNAME
 
 
 def user_log_in():
