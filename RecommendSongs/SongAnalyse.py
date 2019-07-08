@@ -1,19 +1,28 @@
-from Spotify import features
+import Spotify as spot
 import pandas as pd
 from matplotlib import pyplot as plt
 
-#load the data
+sp = spot.user_log_in()
+liked_songs = spot.ser_liked_songs()
+bad_songs = spot.user_playlist_by_name('squarebrush')
+
+features = spot.song_features(liked_songs, target=1)
+bad_features = spot.song_features(bad_songs, target=0)
+features.extend(bad_features)
+
 data = pd.DataFrame(features)
 
-"""function to plot the positive/negative song values 
-of a certain feature
-features are:
-   danceablity, energy, key, loudness, mode, speechiness,
-   acousticness, instrumentalness, liveness, valence,
-   tempo
-"""
 
-def plot_pos_neg(feature):
+def plot_pos_neg(data, feature):
+    
+    """
+    function to plot the positive/negative song values 
+    of a certain feature
+    features are:
+    danceablity, energy, key, loudness, mode, speechiness,
+    acousticness, instrumentalness, liveness, valence,
+    tempo
+    """
     if feature not in list(features[0].keys()):
         print('Cannot plot a feature that is not an audio features')
         return None
@@ -28,6 +37,7 @@ def plot_pos_neg(feature):
         plt.legend(loc='upper right')
         
     return fig
+
 #example plot
 fig = plot_pos_neg('energy')
         
