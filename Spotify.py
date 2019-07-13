@@ -42,7 +42,7 @@ def user_liked_songs():
         
     return liked_songs
 
-def user_playlist_by_name(playlist_name):
+def user_playlist_by_name(playlist_name, user = user):
     """
     returns songs from a user playlist of given name if one exists,
     None is returned else
