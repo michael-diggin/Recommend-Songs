@@ -2,7 +2,6 @@ import pandas as pd
 
 import tensorflow as tf
 from tensorflow import feature_column
-from tensorflow.keras import layers
 from sklearn.model_selection import train_test_split
 
 
@@ -42,9 +41,9 @@ def ml_model(data, batch_size=32):
     #create the model
     model = tf.keras.Sequential([
              feature_layer,
-             layers.Dense(128, activation='relu'),
-             layers.Dense(128, activation='relu'),
-             layers.Dense(1, activation='sigmoid')
+             tf.keras.layers.Dense(128, activation='relu'),
+             tf.keras.layers.Dense(128, activation='relu'),
+             tf.keras.layers.Dense(1, activation='sigmoid')
     ]) 
     
     #compile it
