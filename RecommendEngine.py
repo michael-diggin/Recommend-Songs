@@ -23,4 +23,3 @@ if recommended is not None:
 else:
     print('No songs matched your likes by over 80%')
 
-print(predictions)
