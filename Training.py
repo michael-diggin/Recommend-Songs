@@ -14,4 +14,4 @@ features = spot.song_features(liked_songs, target=1)
 bad_features = spot.song_features(bad_songs, target=0)
 features.extend(bad_features)
 
-model = ml_model(features)
+trained_model = ml_model(features)
