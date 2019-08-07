@@ -3,13 +3,15 @@ import spotipy
 import spotipy.util as util
 from spotipy.oauth2 import SpotifyClientCredentials 
 
+import credentials
+
 #global variables
-cid ="f39a5b4873c644798153b1b2e064622a" 
-secret = "ff2eae50bf1e4a53a9efb9fef2675f9b"
-redirect_uri = "http://localhost:8888/callback/"
+cid = credentials.cid 
+secret = credentials.secret
+redirect_uri = credentials.redirect_uri
 username = ""
-scope = 'user-library-read playlist-read-private'
-user = 'michaeldiggin'
+scope = 'user-library-read playlist-read-private playlist-modify-public'
+user = credentials.user
 
 
 def user_log_in():
@@ -95,4 +97,19 @@ def song_features(songs, target=1):
             features[-1]['target'] = target
             
     return features
+
+def add_tracks(track_ids, playlist_name, user=user):
+    """
+    Function to add the recommeded tracks playlist
+    """
+    playlists = sp.user_playlists(user)
+    for playlist in playlists['items']:
+        if playlist['name'] == playlist_name:
+            play_id = playlist['id']
+
+    sp.trace = False
+    results = sp.user_playlist_add_tracks(user, play_id, track_ids)
+
+    
+
 
